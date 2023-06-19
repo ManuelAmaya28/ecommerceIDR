@@ -18,6 +18,14 @@ a {
     color: white;
 }
 
+th{
+    padding:10px;
+}
+
+td{
+    padding-left:10px;
+}
+
 .navbar {
     grid-area: navbar;
     background-color: #3d71bb;

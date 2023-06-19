@@ -14,6 +14,7 @@ const cantidadTotal = document.getElementById('cantidadTotal');
 let carrito = [];
 let stockProductos = [];
 const URL_STOCK_PRODUCTOS = 'http://127.0.0.1:8080/productos/';
+let URL_MAIN = "http://127.0.0.1:8080/pedidos/arreglo";
 
 botonAbrir.addEventListener('click', () => {
     contenedorModal.classList.toggle('modal-active')
@@ -149,8 +150,8 @@ function actualizarIdsCarrito() {
     if (carrito && idUsuario) {
         // Recorrer el arreglo "carrito" y actualizar los IDs con el "idUsuario"
         carrito.forEach(function (item) {
-            item.id = idUsuario;
-
+            item.id_Usuario = parseInt(idUsuario);
+            delete item.id
             delete item.descripcion;
             delete item.stock;
             delete item.categorias_id;
@@ -161,20 +162,20 @@ function actualizarIdsCarrito() {
         localStorage.setItem("carritoNuevo", JSON.stringify(carrito));
 
 
-        /*     fetch(URL_MAIN, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(carrito)
+        fetch(URL_MAIN, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(carrito)
+        })
+            .then(response => response.json())
+            .then(carrito => {
+                console.log('Success:', carrito);
             })
-                .then(response => response.json())
-                .then(carrito => {
-                    console.log('Success:', carrito);
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                }); */
+            .catch((error) => {
+                console.error('Error:', error);
+            });
 
 
     }

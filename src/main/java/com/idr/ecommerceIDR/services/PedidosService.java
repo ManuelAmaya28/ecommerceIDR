@@ -41,6 +41,12 @@ public class PedidosService {
     public Pedidos addPedido(Pedidos pedido) {
 		return pedidosRepository.save(pedido);
     }//agregar categoria
+    
+    //CAMBIO
+    public List<Pedidos> addAllPedidos(List<Pedidos> Pedidos){
+        return pedidosRepository.saveAll(Pedidos);
+    }//addAllPedidos
+    
 
     public Pedidos updatePedido(long id, String nombre) {
     	Pedidos tmpPedido = null;

@@ -45,6 +45,12 @@ public class PedidosController {
     public Pedidos addPedido(@RequestBody Pedidos pedido){
         return pedidosService.addPedido(pedido);
     }
+    
+    //CAMBIO
+    @PostMapping(path="arreglo")
+    public List<Pedidos> addAllPedidos(@RequestBody List<Pedidos> pedido){
+        return pedidosService.addAllPedidos(pedido);
+    }
 
     @PutMapping(path = "{pedidoId}")
     public Pedidos updatePedido (@PathVariable("pedidoId") long id,

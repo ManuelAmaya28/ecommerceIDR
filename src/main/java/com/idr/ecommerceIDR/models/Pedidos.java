@@ -20,20 +20,21 @@ public class Pedidos {
 	private long precio;
 	@Column(nullable = false)
 	private long cantidad;
+	@Column(nullable = false)
+	private long id_usuario;
 
-//    {id: "1", nombre: "Agua", precio: 33, cantidad: 5}
-
-	public Pedidos(long id, String nombre, long precio, long cantidad) {
+	public Pedidos(long id, String nombre, long precio, long cantidad, long id_usuario) {
 		super();
-		this.id=id;
+		this.id = id;
 		this.nombre = nombre;
 		this.precio = precio;
 		this.cantidad = cantidad;
-	}//constructor
+		this.id_usuario = id_usuario;
+	}// constructor
 
-	public Pedidos(){
-    
-    }
+	public Pedidos() {
+
+	}
 
 	public long getId() {
 		return id;
@@ -67,5 +68,11 @@ public class Pedidos {
 		this.cantidad = cantidad;
 	}
 
-	
+	public long getId_Usuario() {
+		return id_usuario;
+	}
+
+	public void setId_Usuario(long id_usuario) {
+		this.id_usuario = id_usuario;
+	}
 }

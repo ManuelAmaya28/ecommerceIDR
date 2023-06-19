@@ -12,7 +12,7 @@ let alertErrorTexto = document.getElementById("alertErrorTexto");
 let CampoCategoria = document.getElementById("CampoCategoria");
 function Seleccion() {
     CampoCategoria = document.getElementById("CampoCategoria");
- }
+}
 let idTimeout;
 const URL_MAIN = 'http://127.0.0.1:8080/productos/';
 const reader = new FileReader();
@@ -53,6 +53,7 @@ btnCrear.addEventListener("click", function (event) {
                 precio: Precio.value,
                 stock: Stock.value,
                 categorias_id: CampoCategoria.value,
+                cantidad: 1,
                 imagen: src
             };
 

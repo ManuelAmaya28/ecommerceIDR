@@ -46,18 +46,42 @@
             </div>
         </div>
     </nav>
-  
+
     <!-- CONTENIDO -->
 
 
-
-
-    <div class="spinner" id="spinner" style="display: block;"></div>
-    <div class="productos" id="productosDiv">
-
+    <div class="col-md-6" style="padding: 30px;">
+        <label class="form-label">Nombre:</label>
+        <input type="description" class="form-control" placeholder="Buscador" id="textBoxNombre"
+            oninput="filterCards()">
     </div>
 
+    <div class="col-md-6" style="padding: 30px;">
+        <label class="form-label">Categoria:</label>
+        <select class="form-select" aria-label="Default select example" id="textBoxCategoria" onchange="filterCards()">
+            <option selected>Selecciona una categoria</option>
+            <option value="Internacional">Internacional</option>
+            <option value="Nacional">Nacional</option>
+            <option value="Estatal">Estatal</option>
+        </select>
+    </div>
+    <button id="boton-carrito"><i class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span></button>
+    <div class="spinner" id="spinner"></div>
+    <div class="productos" id="contenedor-productos">
 
+    </div>
+    <div class="modal-contenedor">
+        <div class="modal-carrito">
+            <h3>Carrito</h3>
+            <button id="carritoCerrar"><i class="fas fa-times-circle"></i>x</button>
+            <div id="carrito-contenedor">
+
+            </div>
+            <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
+            <button type="button" class="btn btn-primary" id="vaciar-carrito">Vaciar carrito</button>
+            <button type="button" class="btn btn-primary">Primary</button>
+        </div>
+    </div>
 
 
 

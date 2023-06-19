@@ -33,6 +33,8 @@ public class ProductosController {
 	public Productos getProducto(@PathVariable("prodId") Long id) {
 		return productosService.getProducto(id);
 	}//getProduct
+	
+	
 	@DeleteMapping (path="{prodId}")
 	public Productos deleteProducto(@PathVariable("prodId") Long id) {
 		return productosService.deleteProducto(id);
@@ -48,9 +50,10 @@ public class ProductosController {
 			@RequestParam(required = false)Long stock,
 			@RequestParam(required = false)Double precio,
 			@RequestParam(required = false)String categoria,
+			@RequestParam(required = false)Long cantidad,
 			@RequestParam(required = false)String imagen)
 	{
-			return productosService.updateProducto(id, nombre, descripcion, precio, stock, categoria, imagen);
+			return productosService.updateProducto(id, nombre, descripcion, precio, stock, categoria, cantidad, imagen);
 	}//Update
 	
 }//class ProductosController

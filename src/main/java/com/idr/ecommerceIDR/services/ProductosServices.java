@@ -1,5 +1,7 @@
 package com.idr.ecommerceIDR.services;
 import java.util.List;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.idr.ecommerceIDR.models.Productos;
@@ -37,12 +39,12 @@ public class ProductosServices {
 		if (productosRepository.findByNombre(producto.getNombre()).isEmpty()) {
 			tmProducto = productosRepository.save(producto);
 		} else {
-			System.out.println("ya existe un producto con ese nombre!");
+			System.out.println("Ya existe un producto con ese nombre!");
 		}
 		return tmProducto;
 	}//addProducto
     
-    public Productos updateProducto(Long id, String nombre, String descripcion, Double precio, Long stock, String categoria, String imagen) {
+    public Productos updateProducto(Long id, String nombre, String descripcion, Double precio, Long stock, String categoria, Long cantidad, String imagen) {
     	Productos tmpProd = null;
 		if(productosRepository.existsById(id)) {
 			tmpProd = productosRepository.findById(id).get();
@@ -51,6 +53,7 @@ public class ProductosServices {
 				if (stock!=null)tmpProd.setStock(stock);
 				if (precio!=null)tmpProd.setPrecio(precio.doubleValue());
 				if (categoria!=null)tmpProd.setCategorias_id(categoria);	
+				if (cantidad!=null)tmpProd.setStock(cantidad);
 				if (imagen!=null)tmpProd.setImagen(imagen);		
 				productosRepository.save(tmpProd);
 			} else {

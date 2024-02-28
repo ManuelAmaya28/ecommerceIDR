@@ -105,7 +105,3 @@ function mostrarCompra() {
     // Imprimir la tabla en el HTML
     document.getElementById("statusCompra").innerHTML = tablaHTML;
   }
-  
-  
-
-  
